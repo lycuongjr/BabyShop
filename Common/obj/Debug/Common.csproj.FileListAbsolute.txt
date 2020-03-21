@@ -1,0 +1,4 @@
+C:\Users\ngoly\source\repos\BabyShop\Common\bin\Debug\Common.dll
+C:\Users\ngoly\source\repos\BabyShop\Common\bin\Debug\Common.pdb
+C:\Users\ngoly\source\repos\BabyShop\Common\obj\Debug\Common.dll
+C:\Users\ngoly\source\repos\BabyShop\Common\obj\Debug\Common.pdb

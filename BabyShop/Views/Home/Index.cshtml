@@ -1,0 +1,426 @@
+﻿@{
+    ViewBag.Title = "Trang chu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var slides = (List<Model.EF.Slide>)ViewBag.SlideValue;
+    var listNewProduct = (List<Model.EF.Product>)ViewBag.NewProduct;
+    var listSpecialProduct = (List<Model.EF.Product>)ViewBag.SpecialProduct;
+
+}
+@section slide{
+    @foreach (var item in slides)
+    {     
+        <section id="top" class="clearfix">
+            <div class="col-sm-12 top clearfix">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                     
+                        <div class="item">
+                            <img src="@item.Image" alt="Third slide" />
+                            <div class="carousel-caption">
+                                <h3>
+                                    Augue porta
+                                </h3>
+                                <p>
+                                    Praesent mauris. Fusce nec tellus sed augue semper porta.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="http://bootsnipp-env.elasticbeanstalk.com/iframe/8Kj3#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a><a class="right carousel-control" href="http://bootsnipp-env.elasticbeanstalk.com/iframe/8Kj3#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right">
+                        </span>
+                    </a>
+                </div>
+                <div class="main-text">
+                    <div class="col-md-12 top_bottom text-right">
+                        <h1>
+                            consectetur <br />conubia nostra
+                        </h1>
+                        <h3>
+                            aptent taciti sociosqu ad litora torquent per<br />
+                            Curabitursodales ligula in
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    }
+}
+<section id="center" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 center clearfix">
+                <div class="col-sm-8 center_left clearfix">
+                    <div class="center_left_main clearfix">
+                        <div class="grid">
+
+                            <figure class="effect-duke">
+                                <img src="/Content/client/img/4.jpg" alt="img17" />
+                                <figcaption>
+                                    <a href="#">View more</a>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="center_left_main_2 clearfix">
+                            <h2>Cursus ante</h2>
+                            <h4>sem up to</h4>
+                            <h1>45<span class="fifty">%</span> <span class="fifty_1">OFF</span></h1>
+                            <h5><i class="fa fa-chevron-right"></i>Shop now</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 center_right clearfix">
+                    <div class="center_right_top clearfix">
+                        <div class="grid">
+
+                            <figure class="effect-duke">
+                                <img src="/Content/client/img/5.jpg" alt="img17" />
+                                <figcaption>					  </figcaption>
+                            </figure>
+                        </div>
+                        <div class="center_right_main clearfix">
+                            <h2>NIBH</h2>
+                            <h4>nulla quis sem</h4>
+                        </div>
+                    </div>
+                    <div class="center_right_bottom">
+                        <div class="grid">
+
+                            <figure class="effect-duke">
+                                <img src="/Content/client/img/6.jpg" alt="img17" />
+                                <figcaption>
+                                    <a href="#">View more</a>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="center_right_bottom_top">
+                            <div class="center_right_bottom_top_1">
+                                <h4>extra</h4>
+                                <h3>45%</h3>
+                                <h5>O F F !</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="center_2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 center_2">
+                <h4><span class="pop">........................</span>      dapibus  <span class="pop">.........................</span></h4>
+            </div>
+            <div class="col-sm-12 center_2_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h3>
+                                    Carousel Product Cart Slider
+                                </h3>
+                            </div>
+                            <div class="col-md-3 sliding clearfix">
+                                <!-- Controls -->
+                                <div class="controls pull-right">
+                                    <a class="left fa fa-chevron-left btn btn-success" href="http://bootsnipp-env.elasticbeanstalk.com/iframe/2XX5#carousel-example" data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="http://bootsnipp-env.elasticbeanstalk.com/iframe/2XX5#carousel-example" data-slide="next"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="carousel-example" class="carousel slide" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item">
+                                    <div class="row">
+                                        @foreach (var item in listNewProduct)
+                                        {var link = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                                            <div class="col-sm-3">
+                                                <div class="col-item">
+                                                    <div class="photo">
+                                                        <img src="@item.Name" class="img-responsive" alt="a">
+                                                    </div>
+                                                    <div class="info">
+                                                        <div class="row">
+                                                            <div class="pricing col-sm-12">
+                                                                <h5><a href="@link">@item.Name</a></h5>
+                                                                <p><i class="fa fa-star"></i> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-full"></i><i class="fa fa-star-half-full"></i></p>
+                                                                <h6>@item.Price</h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="item active">
+                                    <div class="row">
+                                        @foreach (var item in listNewProduct)
+                                        {
+                                            var link = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                                            <div class="col-sm-3">
+                                                <div class="col-item">
+                                                    <div class="photo">
+                                                        <img src="@item.Image" class="img-responsive" alt="a">
+                                                    </div>
+                                                    <div class="info">
+                                                        <div class="row">
+                                                            <div class="pricing col-sm-12">
+                                                                <h5><a href="@link">@item.Name</a></h5>
+                                                                <p><i class="fa fa-star"></i> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></p>
+                                                                <h6>@item.Price</h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="middle_8" class="clearfix">
+    <div class="parallax-container" data-parallax="scroll" data-position="top" data-bleed="3" data-speed="0.3" data-image-src="/Content/client/img/17.jpg" data-natural-width="1400" data-natural-height="1200">
+        <section id="post">
+            <div class="container">
+                <div class="col-sm-12 kidding clearfix">
+                    <h4>adipiscing elit</h4>
+                    <p>fusce nec tellus sed augue semper</p>
+                    <h5><a href="#">Shop now</a></h5>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+<section id="center_3">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 center_3">
+                <h1>tellus nunc</h1>
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h3>
+                                Carousel Product Cart Slider
+                            </h3>
+                        </div>
+                        <div class="col-md-3 sliding clearfix">
+                            <!-- Controls -->
+                            <div class="controls pull-right">
+                                <a class="left fa fa-chevron-left btn btn-primary" href="http://bootsnipp-env.elasticbeanstalk.com/iframe/2XX5#carousel-example-generic_1" data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-primary" href="http://bootsnipp-env.elasticbeanstalk.com/iframe/2XX5#carousel-example-generic_1" data-slide="next"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="carousel-example-generic_1" class="carousel slide" data-ride="carousel">
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="col-item">
+                                            <div class="photo">
+                                                <div class="ih-item square effect13 bottom_to_top">
+                                                    <a href="#">
+                                                        <div class="img"><img src="/Content/client/img/18.jpg" alt="img"></div>
+                                                        <div class="info">
+                                                            <h3>Integer odio</h3>
+                                                            <p>Sem at nibh elementum</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="pricing_2 col-sm-12">
+                                                        <h5><a href="#">Sed cursus ante dapibus diam sed nisi nulla</a></h5>
+                                                        <h6>Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.Class</h6>
+                                                        <ul>
+                                                            <li class="admin_1"><i class="fa fa-user"></i>Curabitursodales in</li>
+                                                            <li class="admin_2"><a href="#"><i class="fa fa-comment"></i>8</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-item">
+                                            <div class="photo">
+                                                <div class="ih-item square effect13 bottom_to_top">
+                                                    <a href="#">
+                                                        <div class="img"><img src="/Content/client/img/19.jpg" alt="img"></div>
+                                                        <div class="info">
+                                                            <h3>Integer odio</h3>
+                                                            <p>Sem at nibh elementum</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="pricing_2 col-sm-12">
+                                                        <h5><a href="#">taciti sociosqu ad litora torquent conubia</a></h5>
+                                                        <h6>Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.Class Sed nisi ad litora</h6>
+                                                        <ul>
+                                                            <li class="admin_1"><i class="fa fa-user"></i>Inceptos Himenaeos</li>
+                                                            <li class="admin_2"><a href="#"><i class="fa fa-comment"></i>5</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-item">
+                                            <div class="photo">
+                                                <div class="ih-item square effect13 bottom_to_top">
+                                                    <a href="#">
+                                                        <div class="img"><img src="/Content/client/img/20.jpg" alt="img"></div>
+                                                        <div class="info">
+                                                            <h3>Integer odio</h3>
+                                                            <p>Sem at nibh elementum</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="pricing_2 col-sm-12">
+                                                        <h5><a href="#">Mauris fusce tellus sed augue semper porta</a></h5>
+                                                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.Praesent libero Sed cursus ante dapibus</h6>
+                                                        <ul>
+                                                            <li class="admin_1"><i class="fa fa-user"></i>Amet, Consectetur</li>
+                                                            <li class="admin_2"><a href="#"><i class="fa fa-comment"></i>9</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item active">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="col-item">
+                                            <div class="photo">
+                                                <div class="ih-item square effect13 bottom_to_top">
+                                                    <a href="#">
+                                                        <div class="img"><img src="/Content/client/img/21.jpg" alt="img"></div>
+                                                        <div class="info">
+                                                            <h3>Integer odio</h3>
+                                                            <p>Sem at nibh elementum</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="pricing_2 col-sm-12">
+                                                        <h5><a href="#">Sed dignissim lacinia nunc sed augue semper</a></h5>
+                                                        <h6>Aptent taciti sociosqu ad litora torquent conubia nostra, per inceptos himenaeos. Curabitursodales ligula in libero</h6>
+                                                        <ul>
+                                                            <li class="admin_1"><i class="fa fa-user"></i>Vestibulum Lacinia</li>
+                                                            <li class="admin_2"><a href="#"><i class="fa fa-comment"></i>7</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-item">
+                                            <div class="photo">
+                                                <div class="ih-item square effect13 bottom_to_top">
+                                                    <a href="#">
+                                                        <div class="img"><img src="/Content/client/img/19.jpg" alt="img"></div>
+                                                        <div class="info">
+                                                            <h3>Integer odio</h3>
+                                                            <p>Sem at nibh elementum</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="pricing_2 col-sm-12">
+                                                        <h5><a href="#">Duis sagittis ipsum augue semper porta </a></h5>
+                                                        <h6> Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum? Praesent mauris augue semper. Fusce nec tellus sed</h6>
+                                                        <ul>
+                                                            <li class="admin_1"><i class="fa fa-user"></i>Inceptos Himenaeos</li>
+                                                            <li class="admin_2"><a href="#"><i class="fa fa-comment"></i>6</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="col-item">
+                                            <div class="photo">
+                                                <div class="ih-item square effect13 bottom_to_top">
+                                                    <a href="#">
+                                                        <div class="img"><img src="/Content/client/img/18.jpg" alt="img"></div>
+                                                        <div class="info">
+                                                            <h3>Integer odio</h3>
+                                                            <p>Sem at nibh elementum</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="info">
+                                                <div class="row">
+                                                    <div class="pricing_2 col-sm-12">
+                                                        <h5><a href="#">Sociosqu ad litora torquent conubia nostra</a></h5>
+                                                        <h6>Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum? Sit amet</h6>
+                                                        <ul>
+                                                            <li class="admin_1"><i class="fa fa-user"></i>Litora Torquent Per</li>
+                                                            <li class="admin_2"><a href="#"><i class="fa fa-comment"></i>5</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

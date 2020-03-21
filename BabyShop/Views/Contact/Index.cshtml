@@ -1,0 +1,97 @@
+﻿@model Model.EF.Contact
+
+@{
+    var slides = (List<Model.EF.Slide>)ViewBag.SlideValue;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section slide{
+    @foreach (var item in slides)
+    {
+        <div class="banner" style=" background: url(@item.Image) no-repeat center 0px;">
+            <div class="container">
+                <h3>Electronic Store, <span>Special Offers</span></h3>
+            </div>
+        </div>
+    }
+}
+<style>
+    #mapCanvas {
+        height: 600px;
+    }
+</style>
+@section jsFooter{
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="/Content/client/js/controller/contactController.js"></script>
+    <script>
+
+        // This example displays a marker at the center of Australia.
+        // When the user clicks the marker, an info window opens.
+        //21.046300, 105.793266
+        function initMap() {
+            var uluru = { lat: 21.029062, lng: 105.781768 };
+            var map = new google.maps.Map(document.getElementById('mapCanvas'), {
+                zoom: 18,
+                center: uluru
+            });
+
+            var contentString = '@Html.Raw(Model.Content)';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: 'Địa chỉ'
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
+
+
+}
+<div class="container" style="margin-top:10px">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <h2>Thông tin liên hệ</h2>
+                    @Html.Raw(Model.Content)
+                    <h1>Gửi thông tin</h1>
+                    <form class="form-group">
+                        <div class="form-group">
+                            <label>Họ tên</label>
+                            <input class="form-control" type="text" id="txtName" />
+                        </div>
+                        <div class="form-group">
+                            <label>Điện thoại</label>
+                            <input class="form-control" type="text" id="txtPhone" />
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ</label>
+                            <input class="form-control" type="text" id="txtAddress" />
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input class="form-control" type="text" id="txtEmail" />
+                        </div>
+                        <div class="form-group">
+                            <label>Yêu cầu</label>
+                            <input cols="5" rows="5" class="form-control" id="txtContent" />
+                        </div>
+                        <button class="btn btn-success" id="btnSent">Gửi đi</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h2>Bản đồ</h2>
+                    <div class="map" id="mapCanvas"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

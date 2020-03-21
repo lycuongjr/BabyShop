@@ -1,0 +1,59 @@
+﻿@model List<Model.EF.Menuu>
+
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header page-scroll">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <h5><a href="index.html"><i class="fa fa-heartbeat"></i>Childhood</a></h5>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="hidden">
+                                    <a href="#page-top"></a>
+                                </li>
+                                @foreach (var item in Model)
+                                {
+                                    <li>
+                                        <a class="page-scroll" target="@item.Target" href="@item.Link">@item.Text</a>
+                                    </li>
+                                }
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-navicon"></i></a>
+                                @{ Html.RenderAction("ProductCategory", "Product");}
+                            </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
+                                    <ul class="dropdown-menu" style="min-width: 300px;">
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <form class="navbar-form navbar-left" role="search">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="Search" />
+                                                            <span class="input-group-btn">
+                                                                <button class="btn btn-primary" type="button">
+                                                                    Go!
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown shoppin_main">
+                                    @{Html.RenderAction("HeaderCart", "Home");}
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- /.container-fluid -->
+                  

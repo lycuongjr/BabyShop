@@ -1,0 +1,107 @@
+﻿@model List<Model.EF.Product>
+
+@{
+    ViewBag.Title = "Kết quả tìm kiếm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="container" style="padding: 10px 10px;">
+        <h2>Kết quả tìm kiếm từ khóa : @ViewBag.Keyword </h2>
+        <div  style=" border-bottom:1px solid black"></div>
+        <div class="w3ls_mobiles_grid_right_grid3" style=" margin-top: 10px; border-bottom: 1px solid black ">
+            @if (Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+
+                    var link = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+                    <div class="col-md-3 agileinfo_new_products_grid agileinfo_new_products_grid_mobiles">
+                        <div class="agile_ecommerce_tab_left mobiles_grid">
+                            <div class="hs-wrapper hs-wrapper2">
+                                <img src="@item.Image" alt=" " class="img-responsive" />
+                                <img src="@item.Image" alt=" " class="img-responsive" />
+                                <img src="@item.Image" alt=" " class="img-responsive" />
+                                <div class="w3_hs_bottom w3_hs_bottom_sub1">
+                                    <ul>
+                                        <li>
+                                            <a href="#" data-toggle="modal" data-target="#myModal9"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h5><a href="@link">@item.Name</a></h5>
+
+                            <div class="simpleCart_shelfItem">
+                                <p><span>@(item.PromotionPrice.HasValue ? item.PromotionPrice.Value.ToString("N0") : "")</span> <i class="item_price">@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "Lien he")</i></p>
+
+
+                                <a href="/them-gio-hang?productId=@item.ID&quantity=1" class="w3ls-cart">Add to cart</a>
+
+                            </div>
+                            @*<div class="mobiles_grid_pos">
+                                <h6>New</h6>
+                            </div>*@
+                        </div>
+                    </div>
+                }
+                <div class="clearfix"> </div>
+
+                <!--Phan trang-->
+                if (ViewBag.TotalPage > 1)
+                {
+                    var pageDisplay = (int)(ViewBag.MaxPage);
+                    int totalPage = (int)ViewBag.TotalPage;
+                    int currentPage = ((int)ViewBag.Page);
+
+                    // numberic links
+                    var startPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+                    var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+                    var link = "/tim-kiem?keyword=" + ViewBag.Keyword;
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination mt-3" style="padding-left:13%">
+                            @if (currentPage > ViewBag.First)
+                            {
+
+                                <li class="page-item">
+                                    <a class="page-link" href="@link&page=@ViewBag.First" title="Trang dau"><span class="glyphicon glyphicon-menu-left"></span></a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="@link&page=@ViewBag.Prev" title="Trang truoc"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                                </li>
+                            }
+                            @for (int i = startPageIndex; i <= endPageIndex; i++)
+                            {
+                                if (currentPage == i)
+                                {
+                                    <li class="page-item active">
+                                        <a href="@link&page=@i" class="page-link" title="Trang @i">@i</a>
+                                    </li>
+
+                                }
+                                else
+                                {
+                                    <li class="page-item">
+                                        <a href="@link&page=@i" title="Trang @i" class="page-link">@i</a>
+                                    </li>
+                                }
+                            }
+                            @if (currentPage < totalPage)
+                            {
+                                <li class="page-item">
+                                    <a href="@link&page=@ViewBag.Next" class="page-link" title="Trang sau"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                                </li>
+                                <li class="page-item">
+                                    <a href="@link&page=@ViewBag.Last" class="page-link" title="Trang cuoi"><i class="glyphicon glyphicon-menu-right"></i></a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                }
+            }
+            else
+            {
+                <span>Không có bản ghi nào</span>
+            }
+
+        </div>
+    </div>

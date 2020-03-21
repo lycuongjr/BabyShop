@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="container" style="margin-top:10px">
+        <h2 style="margin: 10px 10px; text-align:center">Chào mừng bạn đến với trang đăng ký thành viên</h2>
+        <div class="tab-2">
+
+            <div class="facts">
+                <div class="register">
+                    @using @(Html.BeginForm)
+                    <form action="#" method="post">
+                        <input placeholder="Name" name="Name" type="text" required="">
+                        <input placeholder="Email Address" name="Email" type="email" required="">
+                        <input placeholder="Password" name="Password" type="password" required="">
+                        <input placeholder="Confirm Password" name="Password" type="password" required="">
+                        <div class="sign-up">
+                            <input type="submit" value="Create Account" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,272 @@
+﻿@model PagedList.IPagedList<Model.EF.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "TableList";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Admin.cshtml";
+}
+@section header{
+    Danh sách sản phẩm
+    }
+@section jsFooter{
+    <script src="/Content/admin/js/controller/userController.js"></script>
+}
+
+<style>
+    .PagedList-skipToNext, .PagedList-skipToPrevious {
+        font-size: 20px;
+    }
+
+    .ul.pagination {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+    ul.pagination li {
+        display: inline;
+    }
+
+        ul.pagination li .active {
+            background: #df80ff;
+        }
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .2s;
+            border: 1px solid #dee2e6;
+        }
+
+            ul.pagination li a.active {
+                background-color: none;
+            }
+
+            ul.pagination li a:hover:not(.active) {
+                background-color: #ddd;
+            }
+</style>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Simple Table</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    Mã sản phẩm
+                                </th>
+                                <th>
+                                    Tên sản phẩm
+                                </th>
+                                <th>
+                                    Mô tả
+                                </th>
+                                <th>
+                                    Giá
+                                </th>
+                                <th>
+                                    VAT
+                                </th>
+                                <th>
+                                    Người tạo
+                                </th>
+                                <th>
+                                    Ngày tạo
+                                </th>
+                                <th>
+                                    Trạng thái
+                                </th>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr id="row_@item.ID">
+                                            <td>
+                                                <a href="/Admin/User/EditUser/@item.ID">Edit</a>
+                                                |
+                                                @Ajax.ActionLink("Xoa", "Delete", new { @id = item.ID }, new AjaxOptions
+                                           {
+                                               Confirm = "Bạn muốn xóa bản ghi này!",
+                                               OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                               OnFailure = "Xóa thất bại",
+                                               HttpMethod = "Delete",
+                                               OnSuccess = "Xóa thành công"
+                                           })
+                                            </td>
+                                            <td>@item.Code</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Description</td>
+                                            <td>@(item.Price.HasValue ? item.Price.Value.ToString ("N0") : "")</td>
+                                            <td>@(item.IndudedVAT ?  "Có" : "Không")</td>
+                                            <td>@item.CreatedBy</td>
+                                            <td>@item.CrratedDate</td>
+                                            <td><a href="#" class="btn-active" data-id="@item.ID">@(item.Status ? "Đã kích hoạt" : "Không kích hoạt")</a></td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+
+                            <ul class="pagination" style="padding-left:200px">
+
+
+                                <li class="page-item">
+                                    <div style="text-align:center">Ban dang o trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</div>
+                                    @Html.PagedListPager(Model, page => Url.Action("TableList", new { keyword = "", page, @searchString = @ViewBag.SearchString }))
+
+                                </li>
+
+                            </ul>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-md-12">
+                    <div class="card card-plain">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title mt-0"> Table on Plain Background</h4>
+                            <p class="card-category"> Here is a subtitle for this table</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="">
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Country
+                                    </th>
+                                    <th>
+                                        City
+                                    </th>
+                                    <th>
+                                        Salary
+                                    </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                Dakota Rice
+                                            </td>
+                                            <td>
+                                                Niger
+                                            </td>
+                                            <td>
+                                                Oud-Turnhout
+                                            </td>
+                                            <td>
+                                                $36,738
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2
+                                            </td>
+                                            <td>
+                                                Minerva Hooper
+                                            </td>
+                                            <td>
+                                                Curaçao
+                                            </td>
+                                            <td>
+                                                Sinaai-Waas
+                                            </td>
+                                            <td>
+                                                $23,789
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                3
+                                            </td>
+                                            <td>
+                                                Sage Rodriguez
+                                            </td>
+                                            <td>
+                                                Netherlands
+                                            </td>
+                                            <td>
+                                                Baileux
+                                            </td>
+                                            <td>
+                                                $56,142
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                4
+                                            </td>
+                                            <td>
+                                                Philip Chaney
+                                            </td>
+                                            <td>
+                                                Korea, South
+                                            </td>
+                                            <td>
+                                                Overland Park
+                                            </td>
+                                            <td>
+                                                $38,735
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                5
+                                            </td>
+                                            <td>
+                                                Doris Greene
+                                            </td>
+                                            <td>
+                                                Malawi
+                                            </td>
+                                            <td>
+                                                Feldkirchen in Kärnten
+                                            </td>
+                                            <td>
+                                                $63,542
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                6
+                                            </td>
+                                            <td>
+                                                Mason Porter
+                                            </td>
+                                            <td>
+                                                Chile
+                                            </td>
+                                            <td>
+                                                Gloucester
+                                            </td>
+                                            <td>
+                                                $78,615
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+    </div>
+</div>

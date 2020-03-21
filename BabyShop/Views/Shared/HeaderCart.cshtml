@@ -1,0 +1,10 @@
+﻿@model List<BabyShop.Models.CartItem>
+@{
+    var product = (Model.EF.Product)ViewBag.Product;
+    var bdd = ViewBag.Title = product;
+    ViewBag.Title = product;
+}
+
+<div class="cart cart box_1">
+    <h3 style="color:red; margin-top: 10px;">Giỏ hàng: <span style="color: black; font-size:18px;" title="@Model.Count"><a href="/them-gio-hang?productId=product.ID&quantity=1">@Model.Count sản phẩm - </a></span></h3>
+</div>

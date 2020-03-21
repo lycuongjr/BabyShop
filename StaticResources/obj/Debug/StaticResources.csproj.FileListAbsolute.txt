@@ -1,0 +1,10 @@
+C:\Users\ngoly\source\repos\BabyShop\StaticResources\bin\Debug\StaticResources.dll
+C:\Users\ngoly\source\repos\BabyShop\StaticResources\bin\Debug\StaticResources.pdb
+C:\Users\ngoly\source\repos\BabyShop\StaticResources\bin\Debug\en\StaticResources.resources.dll
+C:\Users\ngoly\source\repos\BabyShop\StaticResources\obj\Debug\StaticResources.Resources.resources
+C:\Users\ngoly\source\repos\BabyShop\StaticResources\obj\Debug\StaticResources.Resources.en.resources
+C:\Users\ngoly\source\repos\BabyShop\StaticResources\obj\Debug\StaticResources.csproj.GenerateResource.cache
+C:\Users\ngoly\source\repos\BabyShop\StaticResources\obj\Debug\en\StaticResources.resources.dll
+C:\Users\ngoly\source\repos\BabyShop\StaticResources\obj\Debug\StaticResources.dll
+C:\Users\ngoly\source\repos\BabyShop\StaticResources\obj\Debug\StaticResources.pdb
+C:\Users\ngoly\source\repos\BabyShop\StaticResources\obj\Debug\StaticResources.csprojAssemblyReference.cache
